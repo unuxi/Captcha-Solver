@@ -1,0 +1,28 @@
+
+### Dokumentation: Bildklassifikationsprojekt mit ConvNeXt Large
+
+#### Grundgerüst und Anpassungen
+- **Jupyter Notebook**: Das Projekt basierte auf einem vorgegebenen Jupyter Notebook, das an spezifischen Stellen angepasst wurde, um die Anforderungen der Bildklassifikationsaufgabe zu erfüllen.
+
+#### Bildtransformationen
+- **Anwendung und Normalisierung**: Erweiterte Bildtransformationen wurden eingesetzt, wobei besonderer Wert auf die Normalisierung und Skalierung entsprechend ImageNet-Standards gelegt wurde. Dies war notwendig, um die Kompatibilität mit vortrainierten Modellen zu gewährleisten.
+
+#### Datenmanagement
+- **Validierungsdatensatz**: Dieser wurde auf 10% des Trainingsdatensatzes festgelegt.
+- **Dataloader**: Die Batch-Größe wurde für eine optimale Ressourcenauslastung angepasst und das Shuffle-Attribut auf 'true' gesetzt.
+
+#### Modellauswahl
+- **Modelltestung**: Unterschiedliche vortrainierte Modelle wurden getestet, darunter ResNet50 und VGG16.
+- **Auswahl**: ConvNeXt Large wurde aufgrund seiner überlegenen Präzision ausgewählt, die folgend aufgezeigt wird
+
+#### Training und Hyperparameter
+- **Optimierer**: Verwendung von AdamW mit einer Lernrate von 0.0003.
+- **Loss-Funktion**: Cross-Entropy mit Label Smoothing.
+- **Scheduler**: Cosine Annealing wurde genutzt, auch wenn dies nicht notwendig war.
+- **Training**: Das Modell erreichte eine Genauigkeit von knapp über 80% bereits nach einer Epoche, was die Wahl von ConvNeXt Large bestätigte.
+
+#### Zusätzliche Mechanismen
+- **Early Stopping und Callbacks**: Zur Optimierung des Trainingsprozesses und zur Vermeidung von Overfitting wurden Early Stopping und Callbacks implementiert.
+
+#### Ergebnis
+- Das ConvNeXt Large Modell erreichte eine Genauigkeit von 80.65% auf dem Validierungsdatensatz nach nur einer Trainingsepoche.

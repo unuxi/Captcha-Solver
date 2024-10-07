@@ -1,0 +1,12 @@
+ML1 Projekt - Dokumentation
+Für das CAPTCHA Projekt wurde innerhalb von Python die Library Tensorflow zum Trainieren des Modells genutzt. 
+Dazu wurden die Daten im ersten Schritt inspiziert, um diese genauer verstehen zu können. 
+Auf dessen Basis wurde festgestellt, dass diese unterschiedliche Dimensionen haben und teilweise unbrauchbar für die jeweilige Klasse gewesen sind. 
+Nach dieser Grundlage wurden die Bilder auf die einheitliche Größe von 100x100 gebracht und unsachgemäße Daten gelöscht oder in passendere Klassen verschoben. 
+Ein weiterer wesentlicher Schritt ist die Integration von einem train_test_split, welcher die Daten zufällig in die unterschiedlichen Datensätze unterteilt, damit unterschiedliche Modelle auf unterschiedlichen Daten trainiert werden können. 
+Um einen größeren Datenbestand generieren zu können, wurden die Daten mithilfe des ImageDataGenerators augmentiert und virtuell vervielfältigt. 
+Als Modelle wurden unterschiedliche bereits vortrainierte Modelle genommen und auf die „neuen“ Datensatz angepasst. Als beste grundlegende Modelle haben sich dabei das VGG16, ResNet und das Xception erwiesen. 
+Diese drei Modelle wurden auf unterschiedliche Weisen angepasst, um das bestmögliche Ergebnis zu erzielen. Dabei hat sich das Xception als am besten erwiesen, mit einer Genauigkeit von 80.45%. 
+Andere gute Modelle waren unter anderem ein VGG16 mit dauerhaft gleichem Valdierungsdatensatz (77%) und mit einem augmentierten Validierungsatz durch den DataGenerator (75%) und ein ResNet (< 80%). 
+Um das beste Ergebnis bei den einzelnen Modellen zu erzielen, wurden diese jeweils in drei Schritten trainiert, mit unterschiedlichen Lernraten, welche sich im jeden Schritt verringert haben. 
+Letztlich konnte das beste Ergebnis erzielt werden, indem die Predictions der oben beschriebenen besten Modelle addiert und gemittelt worden sind. Somit konnte ein finales Ergebnis von 84.32% erreicht werden.
